@@ -1,5 +1,7 @@
 import { countries, CountryInterface } from "./countries";
 
+export { countries, CountryInterface };
+
 export const getCountryFlagEmojiFromCountryCode = (
   countryCode: string
 ): string | null => {

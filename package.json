@@ -1,0 +1,63 @@
+{
+  "name": "country-codes-flags-phone-codes",
+  "version": "1.0.0",
+  "description": "Easily access country codes, flags 🏳 and phone codes",
+  "license": "MIT",
+  "repository": "mehmetcanfarsak/country-codes-flags-phone-codes",
+  "author": {
+    "name": "Mehmet Can Farsak",
+    "url": "https://github.com/mehmetcanfarsak"
+  },
+  "contributors": [],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist/**"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "jest"
+  },
+  "keywords": [
+    "country",
+    "country-code",
+    "country-codes",
+    "country-flags",
+    "country-names",
+    "country-telephone-codes",
+    "country-telephone-prefixes",
+    "countries",
+    "country-iso-codes",
+    "flags",
+    "iso",
+    "iso-codes",
+    "iso-country-codes",
+    "iso-country-names",
+    "iso-country-telephone-codes",
+    "iso-country-telephone-prefixes",
+    "iso-countries",
+    "emoji-flags",
+    "phone-codes",
+    "phone-prefixes",
+    "telephone-codes",
+    "telephone-prefixes",
+    "world-countries",
+    "world-country-codes",
+    "world-country-flags",
+    "world-country-names",
+    "world-country-telephone-codes",
+    "world-country-telephone-prefixes",
+    "world-iso-codes",
+    "world-iso-country-codes",
+    "world-iso-country-names"
+  ],
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.3"
+  }
+}

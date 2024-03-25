@@ -42,6 +42,8 @@ import {
   getCountryCodeFromCountryCodeOrNameOrFlagEmoji,
   getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji,
   getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji,
+  countries, 
+  CountryInterface,
  } from "country-codes-flags-phone-codes";
 
 
@@ -62,6 +64,7 @@ console.log(getCountryNameFromCountryCodeOrNameOrFlagEmoji("US")); // United Sta
 console.log(getCountryCodeFromCountryCodeOrNameOrFlagEmoji("United States")); // US
 console.log(getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji("US")); // 🇺🇸
 console.log(getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji("US")); // +1
+console.log("countries", countries); // [{ name: 'United States', code: 'US', dialCode: '+1', flag: '🇺🇸' }, ...]
 
 ```
 

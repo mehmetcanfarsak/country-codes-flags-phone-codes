@@ -9,7 +9,7 @@ The Country Codes Flags Phone Codes npm package provides a simple and efficient 
 ## Features
 
 - Access country codes, flags, and phone codes conveniently.
-- Data on 246 countries available.
+- Data on 246 available countries.
 - Search functionality to find information quickly.
 - Retrieve data by country name, country code, or phone code.
 

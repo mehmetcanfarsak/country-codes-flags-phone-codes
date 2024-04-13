@@ -20,6 +20,7 @@
     "test": "jest"
   },
   "keywords": [
+    "backend",
     "country",
     "country-code",
     "country-codes",
@@ -29,7 +30,9 @@
     "country-telephone-prefixes",
     "countries",
     "country-iso-codes",
+    "css",
     "flags",
+    "frontend",
     "iso",
     "iso-codes",
     "iso-country-codes",

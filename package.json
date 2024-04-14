@@ -21,6 +21,7 @@
   },
   "keywords": [
     "backend",
+    "commonjs",
     "country",
     "country-code",
     "country-codes",
@@ -45,6 +46,7 @@
     "phone-prefixes",
     "telephone-codes",
     "telephone-prefixes",
+    "typescript",
     "world-countries",
     "world-country-codes",
     "world-country-flags",

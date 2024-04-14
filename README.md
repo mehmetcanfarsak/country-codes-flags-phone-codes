@@ -23,6 +23,8 @@ npm install country-codes-flags-phone-codes
 
 ## Usage
 
+### For TypeScript 
+
 ```typescript
 import {
   getCountryFlagEmojiFromCountryCode,
@@ -67,6 +69,51 @@ console.log(getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji("US")); // +1
 console.log("countries", countries); // [{ name: 'United States', code: 'US', dialCode: '+1', flag: '🇺🇸' }, ...]
 
 ```
+
+### For CommonJs
+  
+```javascript
+  const {
+    getCountryFlagEmojiFromCountryCode,
+    getCountryNameFromCountryCode,
+    getCountryCodeFromCountryName,
+    getCountryFlagEmojiFromCountryName,
+    getCountryNameFromCountryFlagEmoji,
+    getCountryCodeFromCountryFlagEmoji,
+    getCountryFromCountryCode,
+    getCountryFromCountryName,
+    getCountryFromCountryFlagEmoji,
+    getCountryFromCountryCodeOrName,
+    getCountryFromCountryCodeOrFlagEmoji,
+    getCountryFromCountryNameOrFlagEmoji,
+    getCountryFromCountryCodeOrNameOrFlagEmoji,
+    getCountryNameFromCountryCodeOrNameOrFlagEmoji,
+    getCountryCodeFromCountryCodeOrNameOrFlagEmoji,
+    getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji,
+    getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji,
+    countries,
+    CountryInterface,
+  } = require("country-codes-flags-phone-codes");
+console.log(getCountryFlagEmojiFromCountryCode("US")); // 🇺🇸
+console.log(getCountryNameFromCountryCode("US")); // United States
+console.log(getCountryCodeFromCountryName("United States")); // US
+console.log(getCountryFlagEmojiFromCountryName("United States")); // 🇺🇸
+console.log(getCountryNameFromCountryFlagEmoji("🇺🇸")); // United States
+console.log(getCountryCodeFromCountryFlagEmoji("🇺🇸")); // US
+console.log(getCountryFromCountryCode("US")); // { name: 'United States', code: 'US', dialCode: '+1', flag: '🇺🇸' }
+console.log(getCountryFromCountryName("United States")); // { name: 'United States', code: 'US', dialCode: '+1', flag: '🇺🇸' }
+console.log(getCountryFromCountryFlagEmoji("🇺🇸")); // { name: 'United States', code: 'US', dialCode: '+1', flag: '🇺🇸' }
+console.log(getCountryFromCountryCodeOrName("US")); // { name: 'United States', code: 'US', dialCode: '+1', flag: '🇺🇸'
+console.log(getCountryFromCountryCodeOrFlagEmoji("US")); // { name: 'United States', code: 'US', dialCode: '+1', flag: '🇺🇸' }
+console.log(getCountryFromCountryNameOrFlagEmoji("United States")); // { name: 'United States', code: 'US', dialCode: '+1', flag: '🇺🇸' }
+console.log(getCountryFromCountryCodeOrNameOrFlagEmoji("US")); // { name: 'United States', code: 'US', dialCode: '+1', flag: '🇺🇸' }
+console.log(getCountryNameFromCountryCodeOrNameOrFlagEmoji("US")); // United States
+console.log(getCountryCodeFromCountryCodeOrNameOrFlagEmoji("United States")); // US
+console.log(getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji("US")); // 🇺🇸
+console.log(getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji("US")); // +1
+console.log("countries", countries); // [{ name: 'United States', code: 'US', dialCode: '+1', flag: '🇺🇸' }, ...]
+```
+
 
 ## How to Contribute
 

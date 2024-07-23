@@ -1,10 +1,3 @@
-export interface CountryInterface {
-  name: string;
-  flag: string;
-  code: string;
-  dialCode: string;
-}
-
 export const countries = [
   {
     name: "Türkiye",

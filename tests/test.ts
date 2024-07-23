@@ -20,32 +20,38 @@ import {
 
 test("getCountryFlagEmojiFromCountryCode", () => {
   expect(getCountryFlagEmojiFromCountryCode("US")).toBe("🇺🇸");
-  expect(getCountryFlagEmojiFromCountryCode("US ")).toBe(null);
+  expect(getCountryFlagEmojiFromCountryCode("US ")).toBe("🇺🇸");
+  expect(getCountryFlagEmojiFromCountryCode(" us ")).toBe("🇺🇸");
 });
 
 test("getCountryNameFromCountryCode", () => {
   expect(getCountryNameFromCountryCode("US")).toBe("United States");
-  expect(getCountryNameFromCountryCode("US ")).toBe(null);
+  expect(getCountryNameFromCountryCode("US ")).toBe("United States");
+  expect(getCountryNameFromCountryCode(" us ")).toBe("United States");
 });
 
 test("getCountryCodeFromCountryName", () => {
   expect(getCountryCodeFromCountryName("United States")).toBe("US");
-  expect(getCountryCodeFromCountryName("United States ")).toBe(null);
+  expect(getCountryCodeFromCountryName("United States ")).toBe("US");
+  expect(getCountryCodeFromCountryName(" united states ")).toBe("US");
 });
 
 test("getCountryFlagEmojiFromCountryName", () => {
   expect(getCountryFlagEmojiFromCountryName("United States")).toBe("🇺🇸");
-  expect(getCountryFlagEmojiFromCountryName("United States ")).toBe(null);
+  expect(getCountryFlagEmojiFromCountryName("United States ")).toBe("🇺🇸");
+  expect(getCountryFlagEmojiFromCountryName(" united states ")).toBe("🇺🇸");
 });
 
 test("getCountryNameFromCountryFlagEmoji", () => {
   expect(getCountryNameFromCountryFlagEmoji("🇺🇸")).toBe("United States");
-  expect(getCountryNameFromCountryFlagEmoji("🇺🇸 ")).toBe(null);
+  expect(getCountryNameFromCountryFlagEmoji("🇺🇸 ")).toBe("United States");
+  expect(getCountryNameFromCountryFlagEmoji(" 🇺🇸 ")).toBe("United States");
 });
 
 test("getCountryCodeFromCountryFlagEmoji", () => {
   expect(getCountryCodeFromCountryFlagEmoji("🇺🇸")).toBe("US");
-  expect(getCountryCodeFromCountryFlagEmoji("🇺🇸 ")).toBe(null);
+  expect(getCountryCodeFromCountryFlagEmoji("🇺🇸 ")).toBe("US");
+  expect(getCountryCodeFromCountryFlagEmoji(" 🇺🇸 ")).toBe("US");
 });
 
 test("getCountryFromCountryCode", () => {
@@ -55,7 +61,18 @@ test("getCountryFromCountryCode", () => {
     flag: "🇺🇸",
     dialCode: "+1",
   });
-  expect(getCountryFromCountryCode("US ")).toBe(null);
+  expect(getCountryFromCountryCode("US ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCode(" us ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
 });
 
 test("getCountryFromCountryName", () => {
@@ -65,7 +82,18 @@ test("getCountryFromCountryName", () => {
     flag: "🇺🇸",
     dialCode: "+1",
   });
-  expect(getCountryFromCountryName("United States ")).toBe(null);
+  expect(getCountryFromCountryName("United States ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryName(" united states ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
 });
 
 test("getCountryFromCountryFlagEmoji", () => {
@@ -75,7 +103,18 @@ test("getCountryFromCountryFlagEmoji", () => {
     flag: "🇺🇸",
     dialCode: "+1",
   });
-  expect(getCountryFromCountryFlagEmoji("🇺🇸 ")).toBe(null);
+  expect(getCountryFromCountryFlagEmoji("🇺🇸 ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryFlagEmoji(" 🇺🇸 ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
 });
 
 test("getCountryFromCountryCodeOrName", () => {
@@ -91,8 +130,30 @@ test("getCountryFromCountryCodeOrName", () => {
     flag: "🇺🇸",
     dialCode: "+1",
   });
-  expect(getCountryFromCountryCodeOrName("US ")).toBe(null);
-  expect(getCountryFromCountryCodeOrName("United States ")).toBe(null);
+  expect(getCountryFromCountryCodeOrName("US ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCodeOrName("United States ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCodeOrName(" us ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCodeOrName(" united states ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
 });
 
 test("getCountryFromCountryCodeOrFlagEmoji", () => {
@@ -108,8 +169,30 @@ test("getCountryFromCountryCodeOrFlagEmoji", () => {
     flag: "🇺🇸",
     dialCode: "+1",
   });
-  expect(getCountryFromCountryCodeOrFlagEmoji("US ")).toBe(null);
-  expect(getCountryFromCountryCodeOrFlagEmoji("🇺🇸 ")).toBe(null);
+  expect(getCountryFromCountryCodeOrFlagEmoji("US ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCodeOrFlagEmoji("🇺🇸 ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCodeOrFlagEmoji(" us ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCodeOrFlagEmoji(" 🇺🇸 ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
 });
 
 test("getCountryFromCountryNameOrFlagEmoji", () => {
@@ -125,8 +208,30 @@ test("getCountryFromCountryNameOrFlagEmoji", () => {
     flag: "🇺🇸",
     dialCode: "+1",
   });
-  expect(getCountryFromCountryNameOrFlagEmoji("United States ")).toBe(null);
-  expect(getCountryFromCountryNameOrFlagEmoji("🇺🇸 ")).toBe(null);
+  expect(getCountryFromCountryNameOrFlagEmoji("United States ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryNameOrFlagEmoji("🇺🇸 ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryNameOrFlagEmoji(" united states ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryNameOrFlagEmoji(" 🇺🇸 ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
 });
 
 test("getCountryFromCountryCodeOrNameOrFlagEmoji", () => {
@@ -148,11 +253,44 @@ test("getCountryFromCountryCodeOrNameOrFlagEmoji", () => {
     flag: "🇺🇸",
     dialCode: "+1",
   });
-  expect(getCountryFromCountryCodeOrNameOrFlagEmoji("US ")).toBe(null);
-  expect(getCountryFromCountryCodeOrNameOrFlagEmoji("United States ")).toBe(
-    null
+  expect(getCountryFromCountryCodeOrNameOrFlagEmoji("US ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCodeOrNameOrFlagEmoji("United States ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCodeOrNameOrFlagEmoji("🇺🇸 ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCodeOrNameOrFlagEmoji(" us ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
+  expect(getCountryFromCountryCodeOrNameOrFlagEmoji(" united states ")).toEqual(
+    {
+      code: "US",
+      name: "United States",
+      flag: "🇺🇸",
+      dialCode: "+1",
+    }
   );
-  expect(getCountryFromCountryCodeOrNameOrFlagEmoji("🇺🇸 ")).toBe(null);
+  expect(getCountryFromCountryCodeOrNameOrFlagEmoji(" 🇺🇸 ")).toEqual({
+    code: "US",
+    name: "United States",
+    flag: "🇺🇸",
+    dialCode: "+1",
+  });
 });
 
 test("getCountryNameFromCountryCodeOrNameOrFlagEmoji", () => {
@@ -165,11 +303,24 @@ test("getCountryNameFromCountryCodeOrNameOrFlagEmoji", () => {
   expect(getCountryNameFromCountryCodeOrNameOrFlagEmoji("🇺🇸")).toBe(
     "United States"
   );
-  expect(getCountryNameFromCountryCodeOrNameOrFlagEmoji("US ")).toBe(null);
-  expect(getCountryNameFromCountryCodeOrNameOrFlagEmoji("United States ")).toBe(
-    null
+  expect(getCountryNameFromCountryCodeOrNameOrFlagEmoji("US ")).toBe(
+    "United States"
   );
-  expect(getCountryNameFromCountryCodeOrNameOrFlagEmoji("🇺🇸 ")).toBe(null);
+  expect(getCountryNameFromCountryCodeOrNameOrFlagEmoji("United States ")).toBe(
+    "United States"
+  );
+  expect(getCountryNameFromCountryCodeOrNameOrFlagEmoji("🇺🇸 ")).toBe(
+    "United States"
+  );
+  expect(getCountryNameFromCountryCodeOrNameOrFlagEmoji(" us ")).toBe(
+    "United States"
+  );
+  expect(
+    getCountryNameFromCountryCodeOrNameOrFlagEmoji(" united states ")
+  ).toBe("United States");
+  expect(getCountryNameFromCountryCodeOrNameOrFlagEmoji(" 🇺🇸 ")).toBe(
+    "United States"
+  );
 });
 
 test("getCountryCodeFromCountryCodeOrNameOrFlagEmoji", () => {
@@ -178,11 +329,16 @@ test("getCountryCodeFromCountryCodeOrNameOrFlagEmoji", () => {
     "US"
   );
   expect(getCountryCodeFromCountryCodeOrNameOrFlagEmoji("🇺🇸")).toBe("US");
-  expect(getCountryCodeFromCountryCodeOrNameOrFlagEmoji("US ")).toBe(null);
+  expect(getCountryCodeFromCountryCodeOrNameOrFlagEmoji("US ")).toBe("US");
   expect(getCountryCodeFromCountryCodeOrNameOrFlagEmoji("United States ")).toBe(
-    null
+    "US"
   );
-  expect(getCountryCodeFromCountryCodeOrNameOrFlagEmoji("🇺🇸 ")).toBe(null);
+  expect(getCountryCodeFromCountryCodeOrNameOrFlagEmoji("🇺🇸 ")).toBe("US");
+  expect(getCountryCodeFromCountryCodeOrNameOrFlagEmoji(" us ")).toBe("US");
+  expect(
+    getCountryCodeFromCountryCodeOrNameOrFlagEmoji(" united states ")
+  ).toBe("US");
+  expect(getCountryCodeFromCountryCodeOrNameOrFlagEmoji(" 🇺🇸 ")).toBe("US");
 });
 
 test("getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji", () => {
@@ -191,11 +347,20 @@ test("getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji", () => {
     getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji("United States")
   ).toBe("🇺🇸");
   expect(getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji("🇺🇸")).toBe("🇺🇸");
-  expect(getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji("US ")).toBe(null);
+  expect(getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji("US ")).toBe("🇺🇸");
   expect(
     getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji("United States ")
-  ).toBe(null);
-  expect(getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji("🇺🇸 ")).toBe(null);
+  ).toBe("🇺🇸");
+  expect(getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji("🇺🇸 ")).toBe("🇺🇸");
+  expect(getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji(" us ")).toBe(
+    "🇺🇸"
+  );
+  expect(
+    getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji(" united states ")
+  ).toBe("🇺🇸");
+  expect(getCountryFlagEmojiFromCountryCodeOrNameOrFlagEmoji(" 🇺🇸 ")).toBe(
+    "🇺🇸"
+  );
 });
 
 test("getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji", () => {
@@ -204,9 +369,14 @@ test("getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji", () => {
     getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji("United States")
   ).toBe("+1");
   expect(getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji("🇺🇸")).toBe("+1");
-  expect(getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji("US ")).toBe(null);
+  expect(getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji("US ")).toBe("+1");
   expect(
     getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji("United States ")
-  ).toBe(null);
-  expect(getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji("🇺🇸 ")).toBe(null);
+  ).toBe("+1");
+  expect(getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji("🇺🇸 ")).toBe("+1");
+  expect(getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji(" us ")).toBe("+1");
+  expect(
+    getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji(" united states ")
+  ).toBe("+1");
+  expect(getCountryDialCodeFromCountryCodeOrNameOrFlagEmoji(" 🇺🇸 ")).toBe("+1");
 });
